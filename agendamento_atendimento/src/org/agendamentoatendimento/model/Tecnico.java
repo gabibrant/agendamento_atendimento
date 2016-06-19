@@ -1,5 +1,8 @@
 package org.agendamentoatendimento.model;
 
+import org.agendamentoatendimento.model.Habilidades;
+import org.apache.commons.lang3.EnumUtils;
+
 
 /**
  * @author Paulo-Lehman
@@ -29,6 +32,14 @@ public class Tecnico extends Pessoa {
 
     public void setHabilidade(Habilidades habilidade) {
         this.habilidade = habilidade;
+    }
+    
+    public void setHabilidadeById(int id) {
+        for(Habilidades h: Habilidades.values()) {
+            if(h.getId() == id) {
+                habilidade = h;
+            }
+        }
     }
 
     public int getMatr() {

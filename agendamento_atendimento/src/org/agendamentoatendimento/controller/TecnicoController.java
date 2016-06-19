@@ -1,12 +1,17 @@
 package org.agendamentoatendimento.controller;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
+import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
 import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Tecnico;
 import org.agendamentoatendimento.model.TecnicoDao;
 
+import org.apache.commons.lang3.EnumUtils;
 /**
  * @author Paulo-Lehman
  * @version 1.0
@@ -48,12 +53,49 @@ public class TecnicoController {
 	 * 
 	 * @param numeroMatricula
 	 */
-	public Tecnico readTecnico(int numeroMatricula){
-		return null;
-	}
+	public Tecnico readTecnico(int matr) throws SQLException{
+            String select = "SELECT * FROM tecnicos WHERE matr = ?";
+            Tecnico tecnico = null;
+            
+            PreparedStatement stmt = 
+			getConnection().prepareStatement(select);
+			
+            stmt.setInt(1, matr);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                tecnico = new Tecnico();
+                tecnico.setMatr(rs.getInt("matr"));
+                tecnico.setNome(rs.getString("nome"));
+                tecnico.setEmail(rs.getString("email"));
+                tecnico.setTelefone(rs.getString("telefone"));
+                tecnico.setHabilidadeById(rs.getInt("habilidade"));
+            }
+            rs.close();
+            stmt.close();
+            return tecnico;      
+      	}
 
-	public ArrayList<Tecnico> realAllTecnico(){
-		return null;
+	public ArrayList<Tecnico> realAllTecnico() throws SQLException {
+            ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
+            String select = "SELECT * FROM tecnicos";
+            PreparedStatement stmt = getConnection().prepareStatement(select);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                Tecnico tecnico = new Tecnico();
+                tecnico.setMatr(rs.getInt("matr"));
+                tecnico.setNome(rs.getString("nome"));
+                tecnico.setEmail(rs.getString("email"));
+                tecnico.setTelefone(rs.getString("telefone"));
+                tecnico.setHabilidadeById(rs.getInt("habilidade"));
+                tecnicos.add(tecnico);
+            }
+
+            rs.close();
+            stmt.close();
+
+            return tecnicos;       
 	}
 
 	/**
@@ -64,16 +106,25 @@ public class TecnicoController {
 	 * @param habilidade
 	 * @param numeroMatricula
 	 */
-	public int updateTecnico(String nome, String email, String telefone, Habilidades habilidade, int numeroMatricula){
-		return 0;
+	public int updateTecnico(int matr, String nome, String email, String telefone, Habilidades habilidade) throws ParseException, SQLException{
+            Tecnico tecnico = new Tecnico();
+            tecnico.setMatr(matr);  
+            tecnico.setNome(nome);
+            tecnico.setEmail(email);
+            tecnico.setTelefone(telefone);
+            tecnico.setHabilidade(habilidade);
+            
+            new TecnicoDao().alterar(tecnico);
+            return 0;
 	}
 
 	/**
 	 * 
 	 * @param numeroMatricula
 	 */
-	public int deleteTecnico(int numeroMatricula){
-		return 0;
-	}
+	public int deleteTecnico(int matr) throws SQLException{
+            new TecnicoDao().excluir(matr);
+            return 0;
+        }
 
 }

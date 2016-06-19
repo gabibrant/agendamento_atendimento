@@ -11,30 +11,97 @@ import java.util.Calendar;
  */
 public class Orcamento {
 
-	private String identificacao;
-	private String horasNecessarias;
-	private Double valorHora;
-	private ArrayList<Material> materiais;
-	private static Double TAXAISS;
-	private Double valorTotal;
-	private Calendar dataCriacao;
-	private Calendar prazoValidade;
-	public Material m_Material;
+    private int id;
+    private Calendar dataCriacao;
+    private String horasNecessarias;
+    private Calendar prazoValidade;
+    private Double valorHora;
+    private Double taxaISS;
+    private ArrayList<Material> materiais;
+    private Double valorTotal; 
+    //public Material m_Material;
 
-	public Orcamento(){
+    public Orcamento(){
 
+    }
+
+    public void finalize() throws Throwable {
+
+    }
+
+    public String gerarFatura(){
+            return "";
+    }
+
+    public String toString(){
+            return "";
 	}
 
-	public void finalize() throws Throwable {
+    public int getId() {
+        return id;
+    }
 
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String gerarFatura(){
-		return "";
-	}
+    public Calendar getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public String toString(){
-		return "";
-	}
+    public void setDataCriacao(Calendar dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public String getHorasNecessarias() {
+        return horasNecessarias;
+    }
+
+    public void setHorasNecessarias(String horasNecessarias) {
+        this.horasNecessarias = horasNecessarias;
+    }
+
+    public Calendar getPrazoValidade() {
+        return prazoValidade;
+    }
+
+    public void setPrazoValidade(Calendar prazoValidade) {
+        this.prazoValidade = prazoValidade;
+    }
+
+    public Double getValorHora() {
+        return valorHora;
+    }
+
+    public void setValorHora(Double valorHora) {
+        this.valorHora = valorHora;
+    }
+
+    public Double getTaxaISS() {
+        return taxaISS;
+    }
+
+    public void setTaxaISS(Double taxaISS) {
+        this.taxaISS = taxaISS;
+    }
+
+    public ArrayList<Material> getMateriais() {
+        return materiais;
+    }
+
+    public void setMateriais(ArrayList<Material> materiais) {
+        this.materiais = materiais;
+    }
+
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+    
+    
+        
 
 }

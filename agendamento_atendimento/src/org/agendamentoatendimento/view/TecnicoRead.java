@@ -5,11 +5,24 @@
  */
 package org.agendamentoatendimento.view;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import org.agendamentoatendimento.controller.TecnicoController;
+import org.agendamentoatendimento.model.Tecnico;
+
 /**
  *
  * @author Paulo-Lehman
  */
 public class TecnicoRead extends javax.swing.JFrame {
+    
+    private ArrayList<Tecnico> data; //used for data from database
+    private Vector<String> header; //used to store data header
+    
 
     /**
      * Creates new form TecnicoRead
@@ -117,9 +130,15 @@ public class TecnicoRead extends javax.swing.JFrame {
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("Matrícula");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("Nome");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("Habilidade");
             jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Detalhes");
             jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Editar");
             jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setHeaderValue("Remover");
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

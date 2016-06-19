@@ -4,12 +4,16 @@ import org.agendamentoatendimento.model.Cliente;
 import org.agendamentoatendimento.model.ClienteDao;
 import javax.swing.*;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
+import org.agendamentoatendimento.model.Tecnico;
 /**
  * @author Paulo-Lehman
  * @version 1.0
@@ -52,12 +56,52 @@ public class ClienteController {
 	 * 
 	 * @param identidade
 	 */
-	public String readCliente(String identidade){
-		return "";
+	public Cliente readCliente(String cpf) throws SQLException{
+            String select = "SELECT * FROM clientes WHERE cpf = ?";
+            Cliente cliente = null;
+            
+            PreparedStatement stmt = 
+			getConnection().prepareStatement(select);
+			
+            stmt.setString(1, cpf);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                cliente = new Cliente();
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setRg(rs.getString("rg"));
+                cliente.setDataNasc(rs.getString("dataNasc"));
+            }
+            
+            rs.close();
+            stmt.close();
+            return cliente;      
 	}
 
-	public ArrayList<Cliente> readAllCliente(){
-		return null;
+	public ArrayList<Cliente> readAllCliente() throws SQLException{
+            ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+            String select = "SELECT * FROM clientes";
+            PreparedStatement stmt = getConnection().prepareStatement(select);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setRg(rs.getString("rg"));
+                cliente.setDataNasc(rs.getString("dataNasc"));
+                clientes.add(cliente);
+            }
+
+            rs.close();
+            stmt.close();
+
+            return clientes;  
 	}
 
 	/**
