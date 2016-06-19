@@ -1,6 +1,11 @@
 package org.agendamentoatendimento.controller;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Tecnico;
+import org.agendamentoatendimento.model.TecnicoDao;
 
 /**
  * @author Paulo-Lehman
@@ -27,8 +32,16 @@ public class TecnicoController {
 	 * @param habilidade
 	 * @param numeroMatricula
 	 */
-	public int createTecnico(String nome, String email, String telefone, Habilidades habilidade, int numeroMatricula){
-		return 0;
+	public int createTecnico(String nome, String email, String telefone, Habilidades habilidade) throws SQLException, ParseException{
+            Tecnico tecnico = new Tecnico();
+            //tecnico.setMatr(matr);  Auto-increment
+            tecnico.setNome(nome);
+            tecnico.setEmail(email);
+            tecnico.setTelefone(telefone);
+            tecnico.setHabilidade(habilidade);
+                        
+            new TecnicoDao().salvar(tecnico);
+            return 0;
 	}
 
 	/**

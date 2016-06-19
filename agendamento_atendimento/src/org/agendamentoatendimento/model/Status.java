@@ -7,15 +7,25 @@ package org.agendamentoatendimento.model;
  * @created 15-Jun-2016 8:15:57 PM
  */
 public enum Status {
-	Cadastrada,
-	Aguardando OrÁamento,
-	Aguardando AprovaÁ„o do Cliente,
-	Cancelada,
-	Aprovada,
-	Em Andamento,
-	ConcluÌda,
-	Em CobranÁa,
-	Encerrada;
+    cadastrada("Cadastrada"), 
+    aguardando_or√ßamento("Aguardando Or√ßamento"),
+    aguardando_cliente("Aguardando Aprova√ß√£o do Cliente"), 
+    cancelada("Cancelada"), 
+    aprovada("Aprovada"),
+    em_andamento("Em Andamento"), 
+    concluida("Conclu√≠da"), 
+    em_cobranca("Em Cobran√ßa"), 
+    encerrada("Encerrada");
+    
+    private String descricao;
 
-	public OrdemServico m_OrdemServico;
+    Status(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String descricao() {
+        return descricao;
+    }
+
+    public OrdemServico m_OrdemServico;
 }

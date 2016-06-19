@@ -1,6 +1,11 @@
 package org.agendamentoatendimento.controller;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import org.agendamentoatendimento.model.Habilidades;
+import org.agendamentoatendimento.model.Orcamento;
 import org.agendamentoatendimento.model.OrdemServico;
+import org.agendamentoatendimento.model.Status;
 
 /**
  * @author Paulo-Lehman
@@ -32,7 +37,7 @@ public class OrdemServicoController {
 	 * @param conclusao
 	 * @param numReciboPagamento
 	 */
-	public int createOrdemServico(String nomeCliente, int numeroMatriculaTecnico, Habilidades habilidade, Status status, char[300] descricao, String observacao, Orcamento orcamento, Calendar conclusao, int numReciboPagamento){
+	public int createOrdemServico(String nomeCliente, int numeroMatriculaTecnico, Habilidades habilidade, Status status, char[] descricao, String observacao, Orcamento orcamento, Calendar conclusao, int numReciboPagamento){
 		return 0;
 	}
 
@@ -60,7 +65,7 @@ public class OrdemServicoController {
 	 * @param conclusao
 	 * @param numReciboPagamento
 	 */
-	public int updateOrdemServico(String nomeCliente, int numeroMatriculaTecnico, Habilidade habilidade, Status status, char[300] descricao, String observacao, Orcamento orcamento, Calendar conclusao, int numReciboPagamento){
+	public int updateOrdemServico(String nomeCliente, int numeroMatriculaTecnico, Habilidades habilidade, Status status, char[] descricao, String observacao, Orcamento orcamento, Calendar conclusao, int numReciboPagamento){
 		return 0;
 	}
 

@@ -1,5 +1,7 @@
 package org.agendamentoatendimento.model;
 
+import java.util.Calendar;
+
 
 /**
  * @author Paulo-Lehman
@@ -12,12 +14,12 @@ public class OrdemServico {
 	private Cliente cliente;
 	private Tecnico profissional;
 	private Habilidades habilidade;
-	private Status status = 0;
-	private char[300] descricao;
+	private Status status;
+	private char[] descricao = new char[300];
 	private String observacao;
 	private Orcamento orcamento;
 	private Calendar conclusao;
-	private Fatura fatura;
+	//private Fatura fatura;
 	private Pagamento pagamento;
 	public Orcamento m_Orcamento;
 	public Pagamento m_Pagamento;

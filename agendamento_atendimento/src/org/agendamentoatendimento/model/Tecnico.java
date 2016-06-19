@@ -8,8 +8,8 @@ package org.agendamentoatendimento.model;
  */
 public class Tecnico extends Pessoa {
 
-	private Hablidades habilidade;
-	private int numeroMatricula;
+	private Habilidades habilidade;
+	private int matr;
 
 	public Tecnico(){
 
@@ -23,4 +23,21 @@ public class Tecnico extends Pessoa {
 		return "";
 	}
 
+    public Habilidades getHabilidade() {
+        return habilidade;
+    }
+
+    public void setHabilidade(Habilidades habilidade) {
+        this.habilidade = habilidade;
+    }
+
+    public int getMatr() {
+        return matr;
+    }
+
+    public void setMatr(int matr) {
+        this.matr = matr;
+    }
+        
+        
 }

@@ -8,20 +8,47 @@ package org.agendamentoatendimento.model;
  */
 public class Cliente extends Pessoa {
 
-	private String identidade;
-	private String cpf;
-	private String dataNascimento;
+    private String rg;
+    private String cpf;
+    private String dataNasc;
 
-	public Cliente(){
+    public Cliente(){
 
-	}
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
+    public void finalize() throws Throwable {
+            super.finalize();
+    }
 
-	public String toString(){
-		return "";
-	}
+    public String toString(){
+            return "";
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+
+        
 
 }

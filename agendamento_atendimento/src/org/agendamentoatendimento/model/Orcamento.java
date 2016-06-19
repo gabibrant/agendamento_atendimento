@@ -1,5 +1,8 @@
 package org.agendamentoatendimento.model;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 
 /**
  * @author Paulo-Lehman
