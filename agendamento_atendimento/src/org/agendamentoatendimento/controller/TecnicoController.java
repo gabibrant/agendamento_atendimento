@@ -11,7 +11,6 @@ import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Tecnico;
 import org.agendamentoatendimento.model.TecnicoDao;
 
-import org.apache.commons.lang3.EnumUtils;
 /**
  * @author Paulo-Lehman
  * @version 1.0

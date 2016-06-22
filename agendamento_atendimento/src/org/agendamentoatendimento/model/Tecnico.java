@@ -1,7 +1,6 @@
 package org.agendamentoatendimento.model;
 
 import org.agendamentoatendimento.model.Habilidades;
-import org.apache.commons.lang3.EnumUtils;
 
 
 /**
