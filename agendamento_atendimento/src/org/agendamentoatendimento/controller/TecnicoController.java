@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
 import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Tecnico;
