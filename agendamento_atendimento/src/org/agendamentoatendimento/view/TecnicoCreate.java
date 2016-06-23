@@ -63,13 +63,13 @@ public class TecnicoCreate extends javax.swing.JFrame {
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
         ìtemMenuNovoCliente = new javax.swing.JMenuItem();
-        itemMenuOrdem = new javax.swing.JMenuItem();
+        itemMenuNovoOrdem = new javax.swing.JMenuItem();
         itemMenuNovoOrcamento = new javax.swing.JMenuItem();
         menuVer = new javax.swing.JMenu();
         itemMenuVerTecnico = new javax.swing.JMenuItem();
-        itemMenuVerOrcamento = new javax.swing.JMenuItem();
-        itemMenuVerOrdem = new javax.swing.JMenuItem();
         itemMenuVerCliente = new javax.swing.JMenuItem();
+        itemMenuVerOrdem = new javax.swing.JMenuItem();
+        itemMenuVerOrcamento = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
@@ -102,7 +102,7 @@ public class TecnicoCreate extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Técnico - ");
+        setTitle("Cadastro de Técnico - FazConcertos Ltda");
 
         jLabel3.setText("Nome:");
 
@@ -229,19 +229,29 @@ public class TecnicoCreate extends javax.swing.JFrame {
 
         ìtemMenuNovoCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         ìtemMenuNovoCliente.setText("Cliente");
-        menuNovo.add(ìtemMenuNovoCliente);
-
-        itemMenuOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuOrdem.setText("Ordem de Serviço");
-        itemMenuOrdem.addActionListener(new java.awt.event.ActionListener() {
+        ìtemMenuNovoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuOrdemActionPerformed(evt);
+                ìtemMenuNovoClienteActionPerformed(evt);
             }
         });
-        menuNovo.add(itemMenuOrdem);
+        menuNovo.add(ìtemMenuNovoCliente);
+
+        itemMenuNovoOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuNovoOrdem.setText("Ordem de Serviço");
+        itemMenuNovoOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuNovoOrdemActionPerformed(evt);
+            }
+        });
+        menuNovo.add(itemMenuNovoOrdem);
 
         itemMenuNovoOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         itemMenuNovoOrcamento.setText("Orçamento");
+        itemMenuNovoOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuNovoOrcamentoActionPerformed(evt);
+            }
+        });
         menuNovo.add(itemMenuNovoOrcamento);
 
         jMenuBar1.add(menuNovo);
@@ -257,17 +267,32 @@ public class TecnicoCreate extends javax.swing.JFrame {
         });
         menuVer.add(itemMenuVerTecnico);
 
-        itemMenuVerOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuVerOrcamento.setText("Orçamento");
-        menuVer.add(itemMenuVerOrcamento);
+        itemMenuVerCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuVerCliente.setText("Cliente");
+        itemMenuVerCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerClienteActionPerformed(evt);
+            }
+        });
+        menuVer.add(itemMenuVerCliente);
 
         itemMenuVerOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         itemMenuVerOrdem.setText("Ordem de Serviço");
+        itemMenuVerOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerOrdemActionPerformed(evt);
+            }
+        });
         menuVer.add(itemMenuVerOrdem);
 
-        itemMenuVerCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuVerCliente.setText("Cliente");
-        menuVer.add(itemMenuVerCliente);
+        itemMenuVerOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuVerOrcamento.setText("Orçamento");
+        itemMenuVerOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerOrcamentoActionPerformed(evt);
+            }
+        });
+        menuVer.add(itemMenuVerOrcamento);
 
         jMenuBar1.add(menuVer);
 
@@ -304,15 +329,24 @@ public class TecnicoCreate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemMenuNovoTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoTecnicoActionPerformed
-        // TODO add your handling code here:
+        TecnicoCreate tecnicoCreate = new TecnicoCreate();
+        tecnicoCreate.setVisible(true);
+        tecnicoCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
 
-    private void itemMenuOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuOrdemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenuOrdemActionPerformed
+    private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
+        OrdemServicoCreate ordemServicoCreate = new OrdemServicoCreate();
+        ordemServicoCreate.setVisible(true);
+        ordemServicoCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuNovoOrdemActionPerformed
 
     private void itemMenuVerTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerTecnicoActionPerformed
-        // TODO add your handling code here:
+        TecnicoRead tecnicoRead = new TecnicoRead();
+        tecnicoRead.setVisible(true);
+        tecnicoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
 
     private void itemMenuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAjudaSobreActionPerformed
@@ -366,6 +400,41 @@ public class TecnicoCreate extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastrar_tecnicoMouseClicked
 
+    private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
+//        ClienteCreate clienteCreate = new ClienteCreate();
+//        clienteCreate.setVisible(true);
+//        clienteCreate.setLocationRelativeTo(null);
+//        this.setVisible(false);
+    }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
+
+    private void itemMenuNovoOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrcamentoActionPerformed
+        OrcamentoCreate orcamentoCreate = new OrcamentoCreate();
+        orcamentoCreate.setVisible(true);
+        orcamentoCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuNovoOrcamentoActionPerformed
+
+    private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
+//        ClienteRead clienteRead = new ClienteRead();
+//        clienteRead.setVisible(true);
+//        clienteRead.setLocationRelativeTo(null);
+//        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerClienteActionPerformed
+
+    private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed
+        OrdemServicoRead ordemServicoRead = new OrdemServicoRead();
+        ordemServicoRead.setVisible(true);
+        ordemServicoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerOrdemActionPerformed
+
+    private void itemMenuVerOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrcamentoActionPerformed
+        OrcamentoRead orcamentoRead = new OrcamentoRead();
+        orcamentoRead.setVisible(true);
+        orcamentoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerOrcamentoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastrarTecnico;
     private javax.swing.JButton cadastrar_tecnico;
@@ -375,8 +444,8 @@ public class TecnicoCreate extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBox_habilidades;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
+    private javax.swing.JMenuItem itemMenuNovoOrdem;
     private javax.swing.JMenuItem itemMenuNovoTecnico;
-    private javax.swing.JMenuItem itemMenuOrdem;
     private javax.swing.JMenuItem itemMenuVerCliente;
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
