@@ -21,8 +21,6 @@ public class OrdemServico {
 	private Calendar conclusao;
 	//private Fatura fatura;
 	private Pagamento pagamento;
-	public Orcamento m_Orcamento;
-	public Pagamento m_Pagamento;
 
 	public OrdemServico(){
 

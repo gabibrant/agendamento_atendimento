@@ -8,7 +8,6 @@ package org.agendamentoatendimento.view;
 import java.sql.SQLException;
 import java.text.ParseException;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import org.agendamentoatendimento.controller.TecnicoController;
 import org.agendamentoatendimento.model.Habilidades;
@@ -370,7 +369,7 @@ public class TecnicoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBox_habilidadesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void cadastrar_tecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_tecnicoMouseClicked
