@@ -5,12 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
 import org.agendamentoatendimento.model.Material;
 import org.agendamentoatendimento.model.Orcamento;
 import org.agendamentoatendimento.model.OrcamentoDao;
-import org.agendamentoatendimento.model.Tecnico;
 
 /**
  * @author Paulo-Lehman
@@ -19,7 +17,7 @@ import org.agendamentoatendimento.model.Tecnico;
  */
 public class OrcamentoController {
 
-	public Orcamento m_Orcamento;
+	public Orcamento orcamento;
 
 	public OrcamentoController(){
 
@@ -44,7 +42,7 @@ public class OrcamentoController {
 	 * @param taxaISS
 	 */
 	public int createOrcamento(String horasNecessarias, Double valorHora, ArrayList<Material> materiais, Calendar dataCriacao, Calendar prazoValidade, Double taxaISS) throws SQLException{
-            Orcamento orcamento = new Orcamento();
+            orcamento = new Orcamento();
             orcamento.setHorasNecessarias(horasNecessarias);
             orcamento.setValorHora(valorHora);
             orcamento.setMateriais(materiais);
@@ -65,7 +63,7 @@ public class OrcamentoController {
         //Para calcular a quantidade de cada material em um determinado orçamento, tem que usar esse método como base e somar o número de elementos repetidos
         //Depois de calcular a quantidade de cada material, dá pra fazer o preço daquele material (quantidade*valorUnitario)
         public ArrayList<Integer> idMateriaisDoOrcamento(Orcamento orcamento) throws SQLException {           
-            ArrayList<Integer> materiais_id = new ArrayList<Integer>();
+            ArrayList<Integer> materiais_id = new ArrayList<>();
             
             int id_orcamento = orcamento.getId();
             String select = "SELECT * FROM materiais_orcamentos WHERE id_orcamento=" + id_orcamento + ";";
@@ -94,8 +92,8 @@ public class OrcamentoController {
 	 * 
 	 * @param identificacao
 	 */
-	public String readOrcamento(String identificacao){
-		return "";
+	public Orcamento readOrcamento(int identificacao){
+            return null;
 	}
 
 	public ArrayList<Orcamento> realAllOrcamento(){

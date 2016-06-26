@@ -27,6 +27,22 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimento?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        ordemServicoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT o FROM OrdemServico o");
+        ordemServicoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery.getResultList();
+        ordemServicoQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT o FROM OrdemServico o");
+        ordemServicoList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery1.getResultList();
+        agendamento_atendimentoPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimentoPU").createEntityManager();
+        ordemServicoQuery2 = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT o FROM OrdemServico o");
+        ordemServicoList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery2.getResultList();
+        ordemServicoQuery3 = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT o FROM OrdemServico o");
+        ordemServicoList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery3.getResultList();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableOrdemServico = new javax.swing.JTable();
+        botaoCadastrarTecnico = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
@@ -41,7 +57,33 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         menuAjuda = new javax.swing.JMenu();
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
+        jLabel2.setText("Ver Técnicos");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Agendamento de Atendimento - FazConcertos Ltda");
+
+        jLabel3.setText("Ver Ordens de Serviço");
+
+        tableOrdemServico.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tableOrdemServico.setColumnSelectionAllowed(true);
+        tableOrdemServico.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tableOrdemServico);
+        tableOrdemServico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        botaoCadastrarTecnico.setText("Cadastrar");
+        botaoCadastrarTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarTecnicoActionPerformed(evt);
+            }
+        });
 
         menuNovo.setText("Novo");
 
@@ -141,11 +183,37 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addContainerGap(562, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(botaoCadastrarTecnico)
+                            .addGap(0, 752, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(68, 68, 68)
+                    .addComponent(botaoCadastrarTecnico)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(56, Short.MAX_VALUE)))
         );
 
         pack();
@@ -211,7 +279,17 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
+    private void botaoCadastrarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarTecnicoActionPerformed
+        TecnicoCreate tecnicoCreate = new TecnicoCreate();
+        tecnicoCreate.setVisible(true);
+        tecnicoCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_botaoCadastrarTecnicoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
+    private javax.swing.JButton botaoCadastrarTecnico;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
     private javax.swing.JMenuItem itemMenuNovoOrdem;
@@ -220,10 +298,23 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
     private javax.swing.JMenuItem itemMenuVerTecnico;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
+    private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList;
+    private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList1;
+    private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList2;
+    private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList3;
+    private javax.persistence.Query ordemServicoQuery;
+    private javax.persistence.Query ordemServicoQuery1;
+    private javax.persistence.Query ordemServicoQuery2;
+    private javax.persistence.Query ordemServicoQuery3;
+    private javax.swing.JTable tableOrdemServico;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
     // End of variables declaration//GEN-END:variables
 }

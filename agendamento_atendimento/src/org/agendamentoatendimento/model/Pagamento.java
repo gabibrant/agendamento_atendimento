@@ -12,6 +12,36 @@ public class Pagamento {
 	private String forma;
 	private String nomeInstituicao;
 
+    public Pagamento(Integer numRecibo, String forma, String nomeInstituicao) {
+        this.numRecibo = numRecibo;
+        this.forma = forma;
+        this.nomeInstituicao = nomeInstituicao;
+    }
+
+    public Integer getNumRecibo() {
+        return numRecibo;
+    }
+
+    public void setNumRecibo(Integer numRecibo) {
+        this.numRecibo = numRecibo;
+    }
+
+    public String getForma() {
+        return forma;
+    }
+
+    public void setForma(String forma) {
+        this.forma = forma;
+    }
+
+    public String getNomeInstituicao() {
+        return nomeInstituicao;
+    }
+
+    public void setNomeInstituicao(String nomeInstituicao) {
+        this.nomeInstituicao = nomeInstituicao;
+    }
+
 	public Pagamento(){
 
 	}

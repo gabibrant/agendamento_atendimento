@@ -15,11 +15,11 @@ import org.agendamentoatendimento.model.TecnicoDao;
  * @version 1.0
  * @created 15-Jun-2016 8:15:58 PM
  */
-public class TecnicoController {
+public class PagamentoController {
 
 	public Tecnico tecnico;
 
-	public TecnicoController(){
+	public PagamentoController(){
 
 	}
 

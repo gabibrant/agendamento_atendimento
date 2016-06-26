@@ -19,7 +19,6 @@ public class Orcamento {
     private Double taxaISS;
     private ArrayList<Material> materiais;
     private Double valorTotal; 
-    //public Material m_Material;
 
     public Orcamento(){
 
