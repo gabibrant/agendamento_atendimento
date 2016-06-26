@@ -5,16 +5,22 @@
  */
 package org.agendamentoatendimento.view;
 
+import javax.swing.DefaultComboBoxModel;
+import org.agendamentoatendimento.model.Habilidades;
+
 /**
  *
  * @author Paulo-Lehman
  */
 public class OrdemServicoCreate extends javax.swing.JFrame {
-
+    private Integer qteCaracteresDescricao;
+    private final int TAMMAXDESCRICAO = 300;
+    
     /**
      * Creates new form OrdemServicoCreate
      */
     public OrdemServicoCreate() {
+        qteCaracteresDescricao = 300;
         initComponents();
     }
 
@@ -29,6 +35,24 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        comboBox_habilidades = new javax.swing.JComboBox<String>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        cadastrar_tecnico = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        labelQteCaracteresDescricao = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
@@ -48,6 +72,73 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         jLabel1.setText("Agendamento de Atendimento - FazConcertos Ltda");
 
         jLabel2.setText("Cadastrar Ordem de Serviço");
+
+        jLabel3.setText("Código:");
+
+        jLabel4.setText("Cliente:");
+
+        jLabel5.setText("Habilidade demandada:");
+
+        jLabel6.setText("Descrição:");
+
+        jLabel7.setText("Observações do técnico:");
+
+        jTextField1.setText("201601010001");
+        jTextField1.setEnabled(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboBox_habilidades.setModel(new DefaultComboBoxModel(Habilidades.values()));
+        comboBox_habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBox_habilidadesActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jLabel8.setText("(Opcional)");
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        cadastrar_tecnico.setText("Cadastrar");
+        cadastrar_tecnico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastrar_tecnicoMouseClicked(evt);
+            }
+        });
+        cadastrar_tecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrar_tecnicoActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Restam");
+
+        labelQteCaracteresDescricao.setText("300");
+
+        jLabel11.setText("caracteres.");
 
         menuNovo.setText("Novo");
 
@@ -148,11 +239,45 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cadastrar_tecnico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelQteCaracteresDescricao)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane2)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboBox_habilidades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +286,39 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBox_habilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(labelQteCaracteresDescricao)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(cadastrar_tecnico))
+                .addContainerGap())
         );
 
         pack();
@@ -227,7 +384,54 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void comboBox_habilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_habilidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBox_habilidadesActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cadastrar_tecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_tecnicoMouseClicked
+        // TODO add your handling code here:
+//        habilidade = (Habilidades)comboBox_habilidades.getSelectedItem();
+//
+//        TecnicoController tc = new TecnicoController();
+//        try{
+//            tc.createTecnico(nome, email, telefone, habilidade);
+//            JOptionPane.showMessageDialog(this, "Contato salvo com sucesso!");
+//            //clearFields();
+//            //contatoList = new ContatoController().listaContatos();
+//        }
+//        catch (SQLException e) {
+//            JOptionPane.showMessageDialog(this,
+//                "Nao foi possivel salvar contato!n" +
+//                e.getLocalizedMessage()
+//            );
+//        } catch (ParseException e) {
+//            JOptionPane.showMessageDialog(this,
+//                "Data possui formato inv&aacute;lido!n" +
+//                e.getLocalizedMessage()
+//            );
+//        }
+    }//GEN-LAST:event_cadastrar_tecnicoMouseClicked
+
+    private void cadastrar_tecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_tecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastrar_tecnicoActionPerformed
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        qteCaracteresDescricao = TAMMAXDESCRICAO - labelQteCaracteresDescricao.getText().length();
+        labelQteCaracteresDescricao.setText(qteCaracteresDescricao.toString());
+    }//GEN-LAST:event_jTextArea1KeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrar_tecnico;
+    private javax.swing.JComboBox<String> comboBox_habilidades;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
     private javax.swing.JMenuItem itemMenuNovoOrdem;
@@ -236,9 +440,25 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
     private javax.swing.JMenuItem itemMenuVerTecnico;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelQteCaracteresDescricao;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;

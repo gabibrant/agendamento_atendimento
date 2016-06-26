@@ -19,7 +19,6 @@ public class OrdemServico {
 	private String observacao;
 	private Orcamento orcamento;
 	private Calendar conclusao;
-	//private Fatura fatura;
 	private Pagamento pagamento;
 
 	public OrdemServico(){
