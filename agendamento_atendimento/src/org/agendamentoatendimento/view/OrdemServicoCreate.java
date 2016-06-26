@@ -6,6 +6,7 @@
 package org.agendamentoatendimento.view;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.event.DocumentEvent;
 import org.agendamentoatendimento.model.Habilidades;
 
 /**
@@ -44,7 +45,7 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         comboBox_habilidades = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textAreaDescricao = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
@@ -100,14 +101,14 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+        textAreaDescricao.setColumns(20);
+        textAreaDescricao.setRows(5);
+        textAreaDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextArea1KeyTyped(evt);
+                textAreaDescricaoKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane1.setViewportView(textAreaDescricao);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -424,10 +425,10 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrar_tecnicoActionPerformed
 
-    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
-        qteCaracteresDescricao = TAMMAXDESCRICAO - labelQteCaracteresDescricao.getText().length();
+    private void textAreaDescricaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAreaDescricaoKeyTyped
+        qteCaracteresDescricao = TAMMAXDESCRICAO - textAreaDescricao.getText().length();
         labelQteCaracteresDescricao.setText(qteCaracteresDescricao.toString());
-    }//GEN-LAST:event_jTextArea1KeyTyped
+    }//GEN-LAST:event_textAreaDescricaoKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrar_tecnico;
@@ -455,13 +456,13 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelQteCaracteresDescricao;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
+    private javax.swing.JTextArea textAreaDescricao;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
     // End of variables declaration//GEN-END:variables
 }
