@@ -69,6 +69,7 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Criar Ordem de Serviço - FazConcertos Ltda");
 
         jLabel1.setText("Agendamento de Atendimento - FazConcertos Ltda");
 

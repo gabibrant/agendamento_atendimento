@@ -41,7 +41,8 @@ public class OrcamentoCreate extends javax.swing.JFrame {
         menuAjuda = new javax.swing.JMenu();
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Criar Orçamentos - FazConcertos Ltda");
 
         menuNovo.setText("Novo");
 

@@ -49,6 +49,7 @@ public class ClienteRead extends javax.swing.JFrame {
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de Clientes - FazConcertos Ltda");
 
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

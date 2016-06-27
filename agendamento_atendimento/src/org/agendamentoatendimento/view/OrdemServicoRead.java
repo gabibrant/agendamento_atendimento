@@ -26,6 +26,7 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel2 = new javax.swing.JLabel();
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimento?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
@@ -38,6 +39,8 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         ordemServicoList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery2.getResultList();
         ordemServicoQuery3 = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT o FROM OrdemServico o");
         ordemServicoList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery3.getResultList();
+        ordemServicoQuery4 = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT o FROM OrdemServico o");
+        ordemServicoList4 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : ordemServicoQuery4.getResultList();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -60,21 +63,45 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         jLabel2.setText("Ver Técnicos");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de Ordens de Serviço - FazConcertos Ltda");
 
         jLabel1.setText("Agendamento de Atendimento - FazConcertos Ltda");
 
         jLabel3.setText("Ver Ordens de Serviço");
 
-        tableOrdemServico.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
         tableOrdemServico.setColumnSelectionAllowed(true);
         tableOrdemServico.getTableHeader().setReorderingAllowed(false);
+
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, ordemServicoList4, tableOrdemServico);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matrTecnico}"));
+        columnBinding.setColumnName("Matr Tecnico");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${status}"));
+        columnBinding.setColumnName("Status");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${observacao}"));
+        columnBinding.setColumnName("Observacao");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${dataConclusao}"));
+        columnBinding.setColumnName("Data Conclusao");
+        columnBinding.setColumnClass(java.util.Date.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idPagamento}"));
+        columnBinding.setColumnName("Id Pagamento");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idOrcamento}"));
+        columnBinding.setColumnName("Id Orcamento");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpfCliente}"));
+        columnBinding.setColumnName("Cpf Cliente");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${habilidade}"));
+        columnBinding.setColumnName("Habilidade");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
         jScrollPane1.setViewportView(tableOrdemServico);
         tableOrdemServico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -216,6 +243,8 @@ public class OrdemServicoRead extends javax.swing.JFrame {
                     .addContainerGap(56, Short.MAX_VALUE)))
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -310,11 +339,14 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList1;
     private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList2;
     private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList3;
+    private java.util.List<org.agendamentoatendimento.view.OrdemServico> ordemServicoList4;
     private javax.persistence.Query ordemServicoQuery;
     private javax.persistence.Query ordemServicoQuery1;
     private javax.persistence.Query ordemServicoQuery2;
     private javax.persistence.Query ordemServicoQuery3;
+    private javax.persistence.Query ordemServicoQuery4;
     private javax.swing.JTable tableOrdemServico;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

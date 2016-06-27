@@ -42,6 +42,7 @@ public class OrcamentoRead extends javax.swing.JFrame {
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de Orçamentos - FazConcertos Ltda");
 
         menuNovo.setText("Novo");
 
