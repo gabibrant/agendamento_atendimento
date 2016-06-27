@@ -385,6 +385,8 @@ public class TecnicoCreate extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Contato salvo com sucesso!");
             //clearFields();
             //contatoList = new ContatoController().listaContatos();
+            new TecnicoRead().setVisible(true);
+            this.dispose();
         }
         catch (SQLException e) {
             JOptionPane.showMessageDialog(this, 

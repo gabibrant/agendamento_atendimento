@@ -252,28 +252,24 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         TecnicoCreate tecnicoCreate = new TecnicoCreate();
         tecnicoCreate.setVisible(true);
         tecnicoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
 
     private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
-        //        ClienteCreate clienteCreate = new ClienteCreate();
-        //        clienteCreate.setVisible(true);
-        //        clienteCreate.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteCreate clienteCreate = new ClienteCreate();
+//        clienteCreate.setVisible(true);
+//        clienteCreate.setLocationRelativeTo(null);
     }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
 
     private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
         OrdemServicoCreate ordemServicoCreate = new OrdemServicoCreate();
         ordemServicoCreate.setVisible(true);
         ordemServicoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoOrdemActionPerformed
 
     private void itemMenuNovoOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrcamentoActionPerformed
         OrcamentoCreate orcamentoCreate = new OrcamentoCreate();
         orcamentoCreate.setVisible(true);
         orcamentoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoOrcamentoActionPerformed
 
     private void itemMenuVerTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerTecnicoActionPerformed
@@ -284,10 +280,10 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
 
     private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
-        //        ClienteRead clienteRead = new ClienteRead();
-        //        clienteRead.setVisible(true);
-        //        clienteRead.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteRead clienteRead = new ClienteRead();
+        clienteRead.setVisible(true);
+        clienteRead.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuVerClienteActionPerformed
 
     private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed
@@ -309,10 +305,9 @@ public class OrdemServicoRead extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
     private void botaoCadastrarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarTecnicoActionPerformed
-        TecnicoCreate tecnicoCreate = new TecnicoCreate();
+        OrdemServicoCreate tecnicoCreate = new OrdemServicoCreate();
         tecnicoCreate.setVisible(true);
         tecnicoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_botaoCadastrarTecnicoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
