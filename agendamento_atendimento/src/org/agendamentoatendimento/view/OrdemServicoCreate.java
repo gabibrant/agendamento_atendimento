@@ -6,6 +6,7 @@
 package org.agendamentoatendimento.view;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.ComboBoxModel;
@@ -62,7 +63,7 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaDescricao = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        textAreaObservacoes = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         botaoCadastrarOrdemServico = new javax.swing.JButton();
@@ -115,9 +116,9 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(textAreaDescricao);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        textAreaObservacoes.setColumns(20);
+        textAreaObservacoes.setRows(5);
+        jScrollPane2.setViewportView(textAreaObservacoes);
 
         jLabel8.setText("(Opcional)");
 
@@ -410,24 +411,21 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void botaoCadastrarOrdemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarOrdemServicoMouseClicked
-        // TODO add your handling code here:
-//        habilidade = (Habilidades)comboBox_habilidades.getSelectedItem();
-//
-//        OrdemServicoController ordemServicoController = new OrdemServicoController();
+        OrdemServicoController ordemServicoController = new OrdemServicoController();
 //        try{
-//            ordemServicoController.createOrdemServico(comboBoxClientes.getSelectedItem(), numeroMatriculaTecnico, Habilidades.Limpador, Status.cadastrada, descricao, null, idOrcamento, null, numReciboPagamento), email, telefone, habilidade);
-//            JOptionPane.showMessageDialog(this, "Contato salvo com sucesso!");
+////            ordemServicoController.createOrdemServico(comboBoxClientes.getSelectedItem(), null, comboBox_habilidades.getSelectedItem(), Status.cadastrada, textAreaDescricao.getText(), textAreaObservacoes.getText(), null, );
+//            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
 //            //clearFields();
 //            //contatoList = new ContatoController().listaContatos();
 //        }
 //        catch (SQLException e) {
 //            JOptionPane.showMessageDialog(this,
-//                "Nao foi possivel salvar contato!n" +
+//                "Nao foi possivel salvar!" +
 //                e.getLocalizedMessage()
 //            );
 //        } catch (ParseException e) {
 //            JOptionPane.showMessageDialog(this,
-//                "Data possui formato inv&aacute;lido!n" +
+//                "Data possui formato inv&aacute;lido!" +
 //                e.getLocalizedMessage()
 //            );
 //        }
@@ -482,12 +480,12 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel labelQteCaracteresDescricao;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
     private javax.swing.JTextArea textAreaDescricao;
+    private javax.swing.JTextArea textAreaObservacoes;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
