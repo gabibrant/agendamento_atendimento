@@ -145,7 +145,7 @@ public class Clientes implements Serializable {
 
     @Override
     public String toString() {
-        return "org.agendamentoatendimento.view.Clientes[ cpf=" + cpf + " ]";
+        return cpf + " - " + nome;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
