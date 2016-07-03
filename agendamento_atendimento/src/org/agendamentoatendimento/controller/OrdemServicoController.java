@@ -3,6 +3,9 @@ package org.agendamentoatendimento.controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import org.agendamentoatendimento.model.ClienteDao;
 import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Orcamento;
 import org.agendamentoatendimento.model.OrdemServico;
@@ -31,7 +34,7 @@ public class OrdemServicoController {
 
 	/**
 	 * 
-	 * @param nomeCliente
+	 * @param cpfCliente
 	 * @param numeroMatriculaTecnico
 	 * @param habilidade
 	 * @param status
@@ -41,17 +44,19 @@ public class OrdemServicoController {
 	 * @param conclusao
 	 * @param numReciboPagamento
 	 */
-	public int createOrdemServico(String nomeCliente, int numeroMatriculaTecnico, Habilidades habilidade, Status status, char[] descricao, String observacao, int idOrcamento, Calendar conclusao, int numReciboPagamento) throws SQLException{
+	public int createOrdemServico(String cpfCliente, int numeroMatriculaTecnico, Habilidades habilidade, Status status, char[] descricao, String observacao, int idOrcamento, Calendar conclusao, int numReciboPagamento) throws SQLException{
+            ClienteController clienteController = new ClienteController();
+            
             ordemServico = new OrdemServico();
-            ordemServico.setCliente(null); //TODO
+            ordemServico.setCliente(clienteController.readCliente(cpfCliente));
             ordemServico.setProfissional(new TecnicoController().readTecnico(numeroMatriculaTecnico));
             ordemServico.setHabilidade(habilidade);
             ordemServico.setStatus(status);
             ordemServico.setObservacao(observacao);
             ordemServico.setConclusao(conclusao);
             ordemServico.setOrcamento(new OrcamentoController().readOrcamento(idOrcamento));
-            ordemServico.setPagamento(null); //TODO
-                        
+            ordemServico.setPagamento(null);
+            
             new OrdemServicoDao().salvar(ordemServico);
             return 0;
 	}

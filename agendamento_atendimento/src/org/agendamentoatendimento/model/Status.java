@@ -20,12 +20,12 @@ public enum Status {
     private String descricao;
 
     Status(String descricao) {
-        this.descricao = descricao;
+        
     }
 
-    public String descricao() {
+    public String getStatus() {
         return descricao;
     }
-
-    public OrdemServico m_OrdemServico;
+    
+    
 }
