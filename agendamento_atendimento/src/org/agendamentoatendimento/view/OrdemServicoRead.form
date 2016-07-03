@@ -266,7 +266,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="botaoCadastrarTecnico" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoCadastrarOrdemServico" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="752" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="0" pref="841" max="32767" attributes="0"/>
@@ -288,7 +288,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                  <Component id="botaoCadastrarTecnico" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaoCadastrarOrdemServico" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="105" max="-2" attributes="0"/>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
@@ -359,12 +359,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="botaoCadastrarTecnico">
+    <Component class="javax.swing.JButton" name="botaoCadastrarOrdemServico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarTecnicoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarOrdemServicoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

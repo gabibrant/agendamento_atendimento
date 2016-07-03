@@ -45,7 +45,7 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableOrdemServico = new javax.swing.JTable();
-        botaoCadastrarTecnico = new javax.swing.JButton();
+        botaoCadastrarOrdemServico = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
@@ -105,10 +105,10 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableOrdemServico);
         tableOrdemServico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        botaoCadastrarTecnico.setText("Cadastrar");
-        botaoCadastrarTecnico.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadastrarOrdemServico.setText("Cadastrar");
+        botaoCadastrarOrdemServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarTecnicoActionPerformed(evt);
+                botaoCadastrarOrdemServicoActionPerformed(evt);
             }
         });
 
@@ -221,7 +221,7 @@ public class OrdemServicoRead extends javax.swing.JFrame {
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(botaoCadastrarTecnico)
+                            .addComponent(botaoCadastrarOrdemServico)
                             .addGap(0, 752, Short.MAX_VALUE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE))
                     .addContainerGap()))
@@ -237,7 +237,7 @@ public class OrdemServicoRead extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(68, 68, 68)
-                    .addComponent(botaoCadastrarTecnico)
+                    .addComponent(botaoCadastrarOrdemServico)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(56, Short.MAX_VALUE)))
@@ -304,15 +304,15 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
-    private void botaoCadastrarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarTecnicoActionPerformed
-        OrdemServicoCreate tecnicoCreate = new OrdemServicoCreate();
-        tecnicoCreate.setVisible(true);
-        tecnicoCreate.setLocationRelativeTo(null);
-    }//GEN-LAST:event_botaoCadastrarTecnicoActionPerformed
+    private void botaoCadastrarOrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarOrdemServicoActionPerformed
+        OrdemServicoCreate ordemServicoCreate = new OrdemServicoCreate();
+        ordemServicoCreate.setVisible(true);
+        ordemServicoCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_botaoCadastrarOrdemServicoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
-    private javax.swing.JButton botaoCadastrarTecnico;
+    private javax.swing.JButton botaoCadastrarOrdemServico;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;

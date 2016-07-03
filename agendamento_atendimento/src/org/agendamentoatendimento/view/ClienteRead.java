@@ -32,7 +32,7 @@ public class ClienteRead extends javax.swing.JFrame {
         clientesQuery = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT c FROM Clientes c");
         clientesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clientesQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botaoCadastrarCliente = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -55,10 +55,10 @@ public class ClienteRead extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de Clientes - FazConcertos Ltda");
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCadastrarCliente.setText("Cadastrar");
+        botaoCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCadastrarClienteActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class ClienteRead extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(botaoCadastrarCliente)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -128,7 +128,7 @@ public class ClienteRead extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(botaoCadastrarCliente)
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -249,9 +249,11 @@ public class ClienteRead extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void botaoCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarClienteActionPerformed
+        ClienteCreate clienteCreate = new ClienteCreate();
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_botaoCadastrarClienteActionPerformed
 
     private void itemMenuNovoTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoTecnicoActionPerformed
         TecnicoCreate tecnicoCreate = new TecnicoCreate();
@@ -311,6 +313,7 @@ public class ClienteRead extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
+    private javax.swing.JButton botaoCadastrarCliente;
     private java.util.List<org.agendamentoatendimento.view.Clientes> clientesList;
     private javax.persistence.Query clientesQuery;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
@@ -321,7 +324,6 @@ public class ClienteRead extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
     private javax.swing.JMenuItem itemMenuVerTecnico;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
