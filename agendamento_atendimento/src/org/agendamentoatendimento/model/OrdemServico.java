@@ -12,7 +12,7 @@ public class OrdemServico {
 
 	private int codigo;
 	private Cliente cliente;
-	private Tecnicos profissional;
+	private Tecnico profissional;
 	private Habilidades habilidade;
 	private Status status;
 	private char[] descricao = new char[300];
@@ -21,7 +21,7 @@ public class OrdemServico {
 	private Calendar conclusao;
 	private Pagamento pagamento;
 
-    public OrdemServico(int codigo, Cliente cliente, Tecnicos profissional, Habilidades habilidade, Status status, String observacao, Orcamento orcamento, Calendar conclusao, Pagamento pagamento) {
+    public OrdemServico(int codigo, Cliente cliente, Tecnico profissional, Habilidades habilidade, Status status, String observacao, Orcamento orcamento, Calendar conclusao, Pagamento pagamento) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.profissional = profissional;
@@ -49,11 +49,11 @@ public class OrdemServico {
         this.cliente = cliente;
     }
 
-    public Tecnicos getProfissional() {
+    public Tecnico getProfissional() {
         return profissional;
     }
 
-    public void setProfissional(Tecnicos profissional) {
+    public void setProfissional(Tecnico profissional) {
         this.profissional = profissional;
     }
 

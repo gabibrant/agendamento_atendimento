@@ -70,7 +70,7 @@ public class ClienteCreate extends javax.swing.JFrame {
 
         jLabel3.setText("Ver Ordens de Serviço");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Agendamento de Atendimento - FazConcertos Ltda");
 

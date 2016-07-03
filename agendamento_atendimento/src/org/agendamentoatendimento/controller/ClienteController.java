@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
-import org.agendamentoatendimento.model.Tecnicos;
+import org.agendamentoatendimento.model.Tecnico;
 /**
  * @author Paulo-Lehman
  * @version 1.0

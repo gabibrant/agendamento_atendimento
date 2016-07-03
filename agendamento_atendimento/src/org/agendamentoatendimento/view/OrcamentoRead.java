@@ -26,7 +26,16 @@ public class OrcamentoRead extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        agendamento_atendimentoPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimentoPU").createEntityManager();
+        orcamentosQuery = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT o FROM Orcamentos o");
+        orcamentosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : orcamentosQuery.getResultList();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
@@ -43,6 +52,44 @@ public class OrcamentoRead extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de Orçamentos - FazConcertos Ltda");
+
+        jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Ver orçamentos");
+
+        jLabel3.setText("Agendamento de Atendimento - FazConcertos Ltda");
+
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, orcamentosList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${valorTotal}"));
+        columnBinding.setColumnName("Valor Total");
+        columnBinding.setColumnClass(Double.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${valorHora}"));
+        columnBinding.setColumnName("Valor Hora");
+        columnBinding.setColumnClass(Double.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${taxaISS}"));
+        columnBinding.setColumnName("Taxa ISS");
+        columnBinding.setColumnClass(Double.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${prazoValidade}"));
+        columnBinding.setColumnName("Prazo Validade");
+        columnBinding.setColumnClass(java.util.Date.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${horasNecessarias}"));
+        columnBinding.setColumnName("Horas Necessarias");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${criacao}"));
+        columnBinding.setColumnName("Criacao");
+        columnBinding.setColumnClass(java.util.Date.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+
+        jScrollPane1.setViewportView(jTable1);
 
         menuNovo.setText("Novo");
 
@@ -142,42 +189,62 @@ public class OrcamentoRead extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void itemMenuNovoTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoTecnicoActionPerformed
         TecnicoCreate tecnicoCreate = new TecnicoCreate();
         tecnicoCreate.setVisible(true);
         tecnicoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
 
     private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
-        //        ClienteCreate clienteCreate = new ClienteCreate();
-        //        clienteCreate.setVisible(true);
-        //        clienteCreate.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteCreate clienteCreate = new ClienteCreate();
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
     }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
 
     private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
         OrdemServicoCreate ordemServicoCreate = new OrdemServicoCreate();
         ordemServicoCreate.setVisible(true);
         ordemServicoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoOrdemActionPerformed
 
     private void itemMenuNovoOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrcamentoActionPerformed
         OrcamentoCreate orcamentoCreate = new OrcamentoCreate();
         orcamentoCreate.setVisible(true);
         orcamentoCreate.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_itemMenuNovoOrcamentoActionPerformed
 
     private void itemMenuVerTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerTecnicoActionPerformed
@@ -188,10 +255,10 @@ public class OrcamentoRead extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
 
     private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
-        //        ClienteRead clienteRead = new ClienteRead();
-        //        clienteRead.setVisible(true);
-        //        clienteRead.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteRead clienteRead = new ClienteRead();
+        clienteRead.setVisible(true);
+        clienteRead.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuVerClienteActionPerformed
 
     private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed
@@ -213,6 +280,7 @@ public class OrcamentoRead extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
     private javax.swing.JMenuItem itemMenuNovoOrdem;
@@ -221,10 +289,18 @@ public class OrcamentoRead extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
     private javax.swing.JMenuItem itemMenuVerTecnico;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
+    private java.util.List<org.agendamentoatendimento.view.Orcamentos> orcamentosList;
+    private javax.persistence.Query orcamentosQuery;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

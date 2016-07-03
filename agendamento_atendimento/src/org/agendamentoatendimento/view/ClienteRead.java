@@ -26,7 +26,11 @@ public class ClienteRead extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        agendamento_atendimentoPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimentoPU").createEntityManager();
+        clientesQuery = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT c FROM Clientes c");
+        clientesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : clientesQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -38,13 +42,13 @@ public class ClienteRead extends javax.swing.JFrame {
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
         ìtemMenuNovoCliente = new javax.swing.JMenuItem();
-        itemMenuOrdem = new javax.swing.JMenuItem();
+        itemMenuNovoOrdem = new javax.swing.JMenuItem();
         itemMenuNovoOrcamento = new javax.swing.JMenuItem();
         menuVer = new javax.swing.JMenu();
         itemMenuVerTecnico = new javax.swing.JMenuItem();
-        itemMenuVerOrcamento = new javax.swing.JMenuItem();
-        itemMenuVerOrdem = new javax.swing.JMenuItem();
         itemMenuVerCliente = new javax.swing.JMenuItem();
+        itemMenuVerOrdem = new javax.swing.JMenuItem();
+        itemMenuVerOrcamento = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         itemMenuAjudaSobre = new javax.swing.JMenuItem();
 
@@ -77,17 +81,27 @@ public class ClienteRead extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "CPF", "Nome", "Telefone", "E-mail", "Editar", "Remover"
-            }
-        ));
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, clientesList, jTable2);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpf}"));
+        columnBinding.setColumnName("Cpf");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        columnBinding.setColumnName("Nome");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${dataNasc}"));
+        columnBinding.setColumnName("Data Nasc");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${rg}"));
+        columnBinding.setColumnName("Rg");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone}"));
+        columnBinding.setColumnName("Telefone");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email}"));
+        columnBinding.setColumnName("Email");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
         jScrollPane2.setViewportView(jTable2);
 
         jLabel1.setText("Ver clientes");
@@ -132,19 +146,29 @@ public class ClienteRead extends javax.swing.JFrame {
 
         ìtemMenuNovoCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         ìtemMenuNovoCliente.setText("Cliente");
-        menuNovo.add(ìtemMenuNovoCliente);
-
-        itemMenuOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuOrdem.setText("Ordem de Serviço");
-        itemMenuOrdem.addActionListener(new java.awt.event.ActionListener() {
+        ìtemMenuNovoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuOrdemActionPerformed(evt);
+                ìtemMenuNovoClienteActionPerformed(evt);
             }
         });
-        menuNovo.add(itemMenuOrdem);
+        menuNovo.add(ìtemMenuNovoCliente);
+
+        itemMenuNovoOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuNovoOrdem.setText("Ordem de Serviço");
+        itemMenuNovoOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuNovoOrdemActionPerformed(evt);
+            }
+        });
+        menuNovo.add(itemMenuNovoOrdem);
 
         itemMenuNovoOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         itemMenuNovoOrcamento.setText("Orçamento");
+        itemMenuNovoOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuNovoOrcamentoActionPerformed(evt);
+            }
+        });
         menuNovo.add(itemMenuNovoOrcamento);
 
         jMenuBar1.add(menuNovo);
@@ -160,17 +184,32 @@ public class ClienteRead extends javax.swing.JFrame {
         });
         menuVer.add(itemMenuVerTecnico);
 
-        itemMenuVerOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuVerOrcamento.setText("Orçamento");
-        menuVer.add(itemMenuVerOrcamento);
+        itemMenuVerCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuVerCliente.setText("Cliente");
+        itemMenuVerCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerClienteActionPerformed(evt);
+            }
+        });
+        menuVer.add(itemMenuVerCliente);
 
         itemMenuVerOrdem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         itemMenuVerOrdem.setText("Ordem de Serviço");
+        itemMenuVerOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerOrdemActionPerformed(evt);
+            }
+        });
         menuVer.add(itemMenuVerOrdem);
 
-        itemMenuVerCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itemMenuVerCliente.setText("Cliente");
-        menuVer.add(itemMenuVerCliente);
+        itemMenuVerOrcamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itemMenuVerOrcamento.setText("Orçamento");
+        itemMenuVerOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVerOrcamentoActionPerformed(evt);
+            }
+        });
+        menuVer.add(itemMenuVerOrcamento);
 
         jMenuBar1.add(menuVer);
 
@@ -205,34 +244,79 @@ public class ClienteRead extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void itemMenuNovoTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoTecnicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
-
-    private void itemMenuOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuOrdemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenuOrdemActionPerformed
-
-    private void itemMenuVerTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerTecnicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
-
-    private void itemMenuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAjudaSobreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void itemMenuNovoTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoTecnicoActionPerformed
+        TecnicoCreate tecnicoCreate = new TecnicoCreate();
+        tecnicoCreate.setVisible(true);
+        tecnicoCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
+
+    private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
+        ClienteCreate clienteCreate = new ClienteCreate();
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
+
+    private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
+        OrdemServicoCreate ordemServicoCreate = new OrdemServicoCreate();
+        ordemServicoCreate.setVisible(true);
+        ordemServicoCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemMenuNovoOrdemActionPerformed
+
+    private void itemMenuNovoOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrcamentoActionPerformed
+        OrcamentoCreate orcamentoCreate = new OrcamentoCreate();
+        orcamentoCreate.setVisible(true);
+        orcamentoCreate.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemMenuNovoOrcamentoActionPerformed
+
+    private void itemMenuVerTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerTecnicoActionPerformed
+        TecnicoRead tecnicoRead = new TecnicoRead();
+        tecnicoRead.setVisible(true);
+        tecnicoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
+
+    private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
+        ClienteRead clienteRead = new ClienteRead();
+        clienteRead.setVisible(true);
+        clienteRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerClienteActionPerformed
+
+    private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed
+        OrdemServicoRead ordemServicoRead = new OrdemServicoRead();
+        ordemServicoRead.setVisible(true);
+        ordemServicoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerOrdemActionPerformed
+
+    private void itemMenuVerOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrcamentoActionPerformed
+        OrcamentoRead orcamentoRead = new OrcamentoRead();
+        orcamentoRead.setVisible(true);
+        orcamentoRead.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_itemMenuVerOrcamentoActionPerformed
+
+    private void itemMenuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAjudaSobreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
+    private java.util.List<org.agendamentoatendimento.view.Clientes> clientesList;
+    private javax.persistence.Query clientesQuery;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
+    private javax.swing.JMenuItem itemMenuNovoOrdem;
     private javax.swing.JMenuItem itemMenuNovoTecnico;
-    private javax.swing.JMenuItem itemMenuOrdem;
     private javax.swing.JMenuItem itemMenuVerCliente;
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
@@ -249,5 +333,6 @@ public class ClienteRead extends javax.swing.JFrame {
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

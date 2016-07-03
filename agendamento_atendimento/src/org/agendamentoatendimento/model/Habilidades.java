@@ -19,22 +19,7 @@ public enum Habilidades {
         this.id=id;
     }
     
-    /*Retorna a habilidade 
-    Habilidades getId(int id) {
-        for(Habilidades h: Habilidades.values()) {
-            if(h.id == id) {
-                return h;
-            }
-        }
-        return null;// not found
-    }*/
-    
     public int getId() {
         return id; 
     }
-    
-
-        
-    public Tecnicos m_Tecnico;
-    public OrdemServico m_OrdemServico;
 }

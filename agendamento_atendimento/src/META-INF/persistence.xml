@@ -15,6 +15,7 @@
     <class>org.agendamentoatendimento.view.OrdemServico</class>
     <class>org.agendamentoatendimento.view.Tecnicos</class>
     <class>org.agendamentoatendimento.view.Clientes</class>
+    <class>org.agendamentoatendimento.view.Orcamentos</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/agendamento_atendimento"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
