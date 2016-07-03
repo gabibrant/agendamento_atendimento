@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import static org.agendamentoatendimento.model.ConnectionDatabase.getConnection;
 import org.agendamentoatendimento.model.Habilidades;
-import org.agendamentoatendimento.model.Tecnicos;
+import org.agendamentoatendimento.model.Tecnico;
 import org.agendamentoatendimento.model.TecnicoDao;
 
 /**
@@ -17,7 +17,7 @@ import org.agendamentoatendimento.model.TecnicoDao;
  */
 public class TecnicoController {
 
-	public Tecnicos tecnico;
+	public Tecnico tecnico;
 
 	public TecnicoController(){
 
@@ -36,7 +36,7 @@ public class TecnicoController {
 	 * @param numeroMatricula
 	 */
 	public int createTecnico(String nome, String email, String telefone, Habilidades habilidade) throws SQLException, ParseException{
-            tecnico = new Tecnicos();
+            tecnico = new Tecnico();
             //tecnico.setMatr(matr);  Auto-increment
             tecnico.setNome(nome);
             tecnico.setEmail(email);
@@ -51,7 +51,7 @@ public class TecnicoController {
 	 * 
 	 * @param numeroMatricula
 	 */
-	public Tecnicos readTecnico(int matr) throws SQLException{
+	public Tecnico readTecnico(int matr) throws SQLException{
             String select = "SELECT * FROM tecnicos WHERE matr = ?";
             tecnico = null;
             
@@ -62,7 +62,7 @@ public class TecnicoController {
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next()) {
-                tecnico = new Tecnicos();
+                tecnico = new Tecnico();
                 tecnico.setMatr(rs.getInt("matr"));
                 tecnico.setNome(rs.getString("nome"));
                 tecnico.setEmail(rs.getString("email"));
@@ -74,14 +74,14 @@ public class TecnicoController {
             return tecnico;      
       	}
 
-	public ArrayList<Tecnicos> realAllTecnico() throws SQLException {
-            ArrayList<Tecnicos> tecnicos = new ArrayList<Tecnicos>();
+	public ArrayList<Tecnico> realAllTecnico() throws SQLException {
+            ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
             String select = "SELECT * FROM tecnicos";
             PreparedStatement stmt = getConnection().prepareStatement(select);
             ResultSet rs = stmt.executeQuery();
             
             while (rs.next()) {
-                Tecnicos tecnico = new Tecnicos();
+                Tecnico tecnico = new Tecnico();
                 tecnico.setMatr(rs.getInt("matr"));
                 tecnico.setNome(rs.getString("nome"));
                 tecnico.setEmail(rs.getString("email"));
@@ -105,7 +105,7 @@ public class TecnicoController {
 	 * @param numeroMatricula
 	 */
 	public int updateTecnico(int matr, String nome, String email, String telefone, Habilidades habilidade) throws ParseException, SQLException{
-            tecnico = new Tecnicos();
+            tecnico = new Tecnico();
             tecnico.setMatr(matr);  
             tecnico.setNome(nome);
             tecnico.setEmail(email);

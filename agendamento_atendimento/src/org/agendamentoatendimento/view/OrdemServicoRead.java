@@ -256,8 +256,8 @@ public class OrdemServicoRead extends javax.swing.JFrame {
 
     private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
         ClienteCreate clienteCreate = new ClienteCreate();
-//        clienteCreate.setVisible(true);
-//        clienteCreate.setLocationRelativeTo(null);
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
     }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
 
     private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
