@@ -35,6 +35,6 @@ public enum Habilidades {
     
 
         
-    public Tecnico m_Tecnico;
+    public Tecnicos m_Tecnico;
     public OrdemServico m_OrdemServico;
 }

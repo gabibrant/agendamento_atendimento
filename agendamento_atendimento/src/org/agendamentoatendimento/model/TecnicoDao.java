@@ -12,12 +12,12 @@ import java.sql.SQLException;
  * @author Gabriela
  */
 public class TecnicoDao extends GenericDao{
-    public void salvar(Tecnico tecnico) throws SQLException {
+    public void salvar(Tecnicos tecnico) throws SQLException {
         String insert = "INSERT INTO tecnicos (nome, email, telefone, habilidade) VALUES(?,?,?,?)";
         save(insert, tecnico.getNome(), tecnico.getEmail(), tecnico.getTelefone(), tecnico.getHabilidade().getId());
     }
 
-    public void alterar(Tecnico tecnico) throws SQLException {
+    public void alterar(Tecnicos tecnico) throws SQLException {
         String update = "UPDATE tecnicos " +
                 "SET nome = ?, email = ?, telefone = ?, habilidade = ? " +
                 "WHERE matr = ?";
