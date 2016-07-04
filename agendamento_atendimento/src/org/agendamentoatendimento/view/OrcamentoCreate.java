@@ -5,17 +5,44 @@
  */
 package org.agendamentoatendimento.view;
 
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import static java.util.Collections.list;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import org.agendamentoatendimento.controller.OrcamentoController;
+import org.agendamentoatendimento.model.Orcamento;
+
 /**
  *
  * @author Paulo-Lehman
  */
 public class OrcamentoCreate extends javax.swing.JFrame {
-
+    private Calendar calendar;
+    
+    private ArrayList listaMateriaisSelecionados;
+    private Double valorMateriais;
+    private Double horasNecessarias;
+    private Double valorHora;
+    private Double valorISS;
+    private Double valorTotal;
+    
     /**
      * Creates new form OrcamentoCreate
      */
     public OrcamentoCreate() {
+        calendar = Calendar.getInstance();
         initComponents();
+        
+        dataOrcamento.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()));
+        valorMateriais = 0.0;
+        horasNecessarias = 0.0;
+        valorHora = 0.0;
+        valorISS = 0.0;
+        valorTotal = 0.0;
     }
 
     /**
@@ -26,7 +53,30 @@ public class OrcamentoCreate extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        agendamento_atendimentoPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("agendamento_atendimentoPU").createEntityManager();
+        materiaisQuery = java.beans.Beans.isDesignTime() ? null : agendamento_atendimentoPUEntityManager.createQuery("SELECT m FROM Materiais m");
+        materiaisList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : materiaisQuery.getResultList();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        dataOrcamento = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaMateriais = new javax.swing.JList();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        campoHorasNecessarias = new javax.swing.JTextField();
+        campoValorHora = new javax.swing.JTextField();
+        campoTaxaISS = new javax.swing.JTextField();
+        campoValorTotal = new javax.swing.JTextField();
+        botaoCadastrarOrdemServico = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        dataValidadeOrcamento = new com.toedter.calendar.JDateChooser();
+        jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuNovo = new javax.swing.JMenu();
         itemMenuNovoTecnico = new javax.swing.JMenuItem();
@@ -43,6 +93,77 @@ public class OrcamentoCreate extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Criar Orçamentos - FazConcertos Ltda");
+
+        jLabel1.setText("Agendamento de Atendimento - FazConcertos Ltda");
+
+        jLabel2.setText("Cadastrar Orçamento");
+
+        jLabel6.setText("Data do orçamento:");
+
+        jLabel7.setText("Material(is):");
+
+        dataOrcamento.setEditable(false);
+        dataOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataOrcamentoActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, materiaisList, listaMateriais);
+        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${nome} - R$ ${preco}"));
+        bindingGroup.addBinding(jListBinding);
+
+        listaMateriais.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaMateriaisValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaMateriais);
+
+        jLabel3.setText("Horas Necessárias:");
+
+        jLabel4.setText("Valor por Hora:");
+
+        jLabel5.setText("Taxa Imposto Sobre Serviços:");
+
+        jLabel8.setText("Valor Total:");
+
+        campoHorasNecessarias.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                campoHorasNecessariasFocusLost(evt);
+            }
+        });
+
+        campoValorHora.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                campoValorHoraFocusLost(evt);
+            }
+        });
+
+        campoTaxaISS.setEditable(false);
+
+        campoValorTotal.setEditable(false);
+
+        botaoCadastrarOrdemServico.setText("Cadastrar");
+        botaoCadastrarOrdemServico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoCadastrarOrdemServicoMouseClicked(evt);
+            }
+        });
+        botaoCadastrarOrdemServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarOrdemServicoActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Validade do Orçamento:");
 
         menuNovo.setText("Novo");
 
@@ -142,12 +263,81 @@ public class OrcamentoCreate extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(botaoCadastrarOrdemServico)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(dataOrcamento)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                                .addComponent(campoHorasNecessarias)
+                                .addComponent(campoValorHora)
+                                .addComponent(campoTaxaISS)
+                                .addComponent(campoValorTotal)
+                                .addComponent(dataValidadeOrcamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dataOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(campoHorasNecessarias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(campoValorHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(campoTaxaISS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(campoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dataValidadeOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(botaoCadastrarOrdemServico))
+                .addContainerGap())
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,10 +350,10 @@ public class OrcamentoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
 
     private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
-        //        ClienteCreate clienteCreate = new ClienteCreate();
-        //        clienteCreate.setVisible(true);
-        //        clienteCreate.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteCreate clienteCreate = new ClienteCreate();
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
 
     private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
@@ -188,10 +378,10 @@ public class OrcamentoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
 
     private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
-        //        ClienteRead clienteRead = new ClienteRead();
-        //        clienteRead.setVisible(true);
-        //        clienteRead.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteRead clienteRead = new ClienteRead();
+        clienteRead.setVisible(true);
+        clienteRead.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuVerClienteActionPerformed
 
     private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed
@@ -212,7 +402,64 @@ public class OrcamentoCreate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemMenuAjudaSobreActionPerformed
 
+    private void dataOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOrcamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataOrcamentoActionPerformed
+
+    private void botaoCadastrarOrdemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCadastrarOrdemServicoMouseClicked
+        OrcamentoController orcamentoController = new OrcamentoController();
+
+        try{
+            orcamentoController.createOrcamento(horasNecessarias.toString(), valorHora, 
+                    listaMateriaisSelecionados, calendar, 
+                    dataValidadeOrcamento.getCalendar(), valorISS);
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,
+                "Nao foi possivel salvar! " +
+                e.getLocalizedMessage()
+            );
+        }
+    }//GEN-LAST:event_botaoCadastrarOrdemServicoMouseClicked
+
+    private void botaoCadastrarOrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarOrdemServicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCadastrarOrdemServicoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void listaMateriaisValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaMateriaisValueChanged
+        listaMateriaisSelecionados = (ArrayList) listaMateriais.getSelectedValuesList();
+
+        for(int i=0; i < listaMateriaisSelecionados.size(); i++){
+            Object o =  listaMateriaisSelecionados.get(i);
+        }
+    }//GEN-LAST:event_listaMateriaisValueChanged
+
+    private void campoHorasNecessariasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoHorasNecessariasFocusLost
+        String texto = campoHorasNecessarias.getText().replace(",", ".");
+        horasNecessarias = Double.valueOf(texto);
+        alteraValores();
+    }//GEN-LAST:event_campoHorasNecessariasFocusLost
+
+    private void campoValorHoraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoValorHoraFocusLost
+        String texto = campoHorasNecessarias.getText().replace(",", ".");
+        valorHora = Double.valueOf(texto);
+        alteraValores();
+    }//GEN-LAST:event_campoValorHoraFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;
+    private javax.swing.JButton botaoCadastrarOrdemServico;
+    private javax.swing.JTextField campoHorasNecessarias;
+    private javax.swing.JTextField campoTaxaISS;
+    private javax.swing.JTextField campoValorHora;
+    private javax.swing.JTextField campoValorTotal;
+    private javax.swing.JTextField dataOrcamento;
+    private com.toedter.calendar.JDateChooser dataValidadeOrcamento;
     private javax.swing.JMenuItem itemMenuAjudaSobre;
     private javax.swing.JMenuItem itemMenuNovoOrcamento;
     private javax.swing.JMenuItem itemMenuNovoOrdem;
@@ -221,10 +468,34 @@ public class OrcamentoCreate extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuVerOrcamento;
     private javax.swing.JMenuItem itemMenuVerOrdem;
     private javax.swing.JMenuItem itemMenuVerTecnico;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList listaMateriais;
+    private java.util.List<org.agendamentoatendimento.view.Materiais> materiaisList;
+    private javax.persistence.Query materiaisQuery;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuNovo;
     private javax.swing.JMenu menuVer;
     private javax.swing.JMenuItem ìtemMenuNovoCliente;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+    private void alteraValores() {
+        Double subtotal = ((valorHora * horasNecessarias) + valorMateriais);
+        valorISS = subtotal * Orcamento.TAXAISS;
+        campoTaxaISS.setText(valorISS.toString());
+        
+        valorTotal = subtotal + valorISS;
+        campoValorTotal.setText(valorTotal.toString());
+    }
 }

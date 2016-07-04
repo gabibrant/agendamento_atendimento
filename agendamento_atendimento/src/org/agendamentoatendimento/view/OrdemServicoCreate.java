@@ -6,17 +6,11 @@
 package org.agendamentoatendimento.view;
 
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.event.DocumentEvent;
 import org.agendamentoatendimento.controller.ClienteController;
 import org.agendamentoatendimento.controller.OrdemServicoController;
-import org.agendamentoatendimento.model.Cliente;
 import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Status;
 
@@ -371,10 +365,10 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuNovoTecnicoActionPerformed
 
     private void ìtemMenuNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ìtemMenuNovoClienteActionPerformed
-        //        ClienteCreate clienteCreate = new ClienteCreate();
-        //        clienteCreate.setVisible(true);
-        //        clienteCreate.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteCreate clienteCreate = new ClienteCreate();
+        clienteCreate.setVisible(true);
+        clienteCreate.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_ìtemMenuNovoClienteActionPerformed
 
     private void itemMenuNovoOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuNovoOrdemActionPerformed
@@ -399,10 +393,10 @@ public class OrdemServicoCreate extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuVerTecnicoActionPerformed
 
     private void itemMenuVerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerClienteActionPerformed
-        //        ClienteRead clienteRead = new ClienteRead();
-        //        clienteRead.setVisible(true);
-        //        clienteRead.setLocationRelativeTo(null);
-        //        this.setVisible(false);
+        ClienteRead clienteRead = new ClienteRead();
+        clienteRead.setVisible(true);
+        clienteRead.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMenuVerClienteActionPerformed
 
     private void itemMenuVerOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerOrdemActionPerformed

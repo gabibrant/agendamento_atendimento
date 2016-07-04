@@ -39,17 +39,17 @@ public class OrcamentoController {
 	 * @param horasNecessarias
 	 * @param prazoValidade
 	 * @param valorHora
-	 * @param taxaISS
+	 * @param valorISS
 	 */
-	public int createOrcamento(String horasNecessarias, Double valorHora, ArrayList<Material> materiais, Calendar dataCriacao, Calendar prazoValidade, Double taxaISS) throws SQLException{
+	public int createOrcamento(String horasNecessarias, Double valorHora, ArrayList<Material> materiais, Calendar dataCriacao, Calendar prazoValidade, Double valorISS) throws SQLException{
             orcamento = new Orcamento();
             orcamento.setHorasNecessarias(horasNecessarias);
             orcamento.setValorHora(valorHora);
             orcamento.setMateriais(materiais);
             orcamento.setDataCriacao(dataCriacao);
             orcamento.setPrazoValidade(prazoValidade);
-            orcamento.setTaxaISS(taxaISS);
-            orcamento.setValorTotal(calculaValorTotal(valorHora,horasNecessarias,taxaISS,materiais));
+            orcamento.setValorISS(valorISS);
+            orcamento.setValorTotal(calculaValorTotal(valorHora,horasNecessarias,valorISS,materiais));
             new OrcamentoDao().salvar(orcamento);
             return 0;
 	}

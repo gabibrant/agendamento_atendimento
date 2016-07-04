@@ -16,10 +16,11 @@ public class Orcamento {
     private String horasNecessarias;
     private Calendar prazoValidade;
     private Double valorHora;
-    private Double taxaISS;
-    private ArrayList<Material> materiais;
+    private Double valorISS;
     private Double valorTotal; 
-
+    private ArrayList<Material> materiais;
+    public static final Double TAXAISS = 0.05;
+    
     public Orcamento(){
 
     }
@@ -76,14 +77,6 @@ public class Orcamento {
         this.valorHora = valorHora;
     }
 
-    public Double getTaxaISS() {
-        return taxaISS;
-    }
-
-    public void setTaxaISS(Double taxaISS) {
-        this.taxaISS = taxaISS;
-    }
-
     public ArrayList<Material> getMateriais() {
         return materiais;
     }
@@ -98,6 +91,14 @@ public class Orcamento {
 
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public Double getValorISS() {
+        return valorISS;
+    }
+
+    public void setValorISS(Double valorISS) {
+        this.valorISS = valorISS;
     }
     
     
