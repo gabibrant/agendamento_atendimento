@@ -5,6 +5,13 @@
  */
 package org.agendamentoatendimento.view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.AbstractTableModel;
+import org.agendamentoatendimento.controller.OrdemServicoController;
+
 /**
  *
  * @author Paulo-Lehman
@@ -76,6 +83,7 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
         columnBinding.setColumnName("Id");
         columnBinding.setColumnClass(Integer.class);
+        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matrTecnico}"));
         columnBinding.setColumnName("Matr Tecnico");
         columnBinding.setColumnClass(Integer.class);
@@ -100,10 +108,21 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${habilidade}"));
         columnBinding.setColumnName("Habilidade");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("Remover"));
+        columnBinding.setColumnName("Remover");
+        columnBinding.setEditable(false);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
+        tableOrdemServico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableOrdemServicoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableOrdemServico);
         tableOrdemServico.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (tableOrdemServico.getColumnModel().getColumnCount() > 0) {
+            tableOrdemServico.getColumnModel().getColumn(9).setResizable(false);
+        }
 
         botaoCadastrarOrdemServico.setText("Cadastrar");
         botaoCadastrarOrdemServico.addActionListener(new java.awt.event.ActionListener() {
@@ -309,6 +328,38 @@ public class OrdemServicoRead extends javax.swing.JFrame {
         ordemServicoCreate.setVisible(true);
         ordemServicoCreate.setLocationRelativeTo(null);
     }//GEN-LAST:event_botaoCadastrarOrdemServicoActionPerformed
+
+    private void tableOrdemServicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableOrdemServicoMouseClicked
+        Object[] botoes = new Object[2];
+        botoes[0] = "Sim";
+        botoes[1] = "Não";
+        
+        int idOrdemServicoSelecionada = Integer.valueOf(tableOrdemServico.getModel().getValueAt(tableOrdemServico.rowAtPoint(evt.getPoint()), 0).toString());
+        int optionPane;
+        
+        OrdemServicoController ordemServicoController = new OrdemServicoController();
+        
+        // Remover
+        if(tableOrdemServico.columnAtPoint(evt.getPoint()) == 9) {            
+            optionPane = JOptionPane.showOptionDialog(this,
+                "Confirma remover Ordem de Serviço?",
+                "Remover Ordem Serviço",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,     
+                botoes,  
+                botoes[1]);
+            
+            if (optionPane == JOptionPane.YES_OPTION) {
+                try {
+                    ordemServicoController.deleteOrdemServico(idOrdemServicoSelecionada);
+                    tableOrdemServico.repaint();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrdemServicoRead.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_tableOrdemServicoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager agendamento_atendimentoPUEntityManager;

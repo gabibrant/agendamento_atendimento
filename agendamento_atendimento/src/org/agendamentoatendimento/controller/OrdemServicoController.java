@@ -3,16 +3,11 @@ package org.agendamentoatendimento.controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import org.agendamentoatendimento.model.ClienteDao;
 import org.agendamentoatendimento.model.Habilidades;
 import org.agendamentoatendimento.model.Orcamento;
 import org.agendamentoatendimento.model.OrdemServico;
 import org.agendamentoatendimento.model.OrdemServicoDao;
-import org.agendamentoatendimento.model.Pagamento;
 import org.agendamentoatendimento.model.Status;
-import org.agendamentoatendimento.model.TecnicoDao;
 
 /**
  * @author Paulo-Lehman
@@ -93,8 +88,9 @@ public class OrdemServicoController {
 	 * 
 	 * @param codigo
 	 */
-	public int deleteOrdemServico(int codigo){
-		return 0;
+	public int deleteOrdemServico(int codigo) throws SQLException {
+            new OrdemServicoDao().excluir(codigo);
+            return 0;
 	}
 
 }
